@@ -14,24 +14,23 @@ For this scenario we’re going to use SHA-256 hashes to verify file
 integrity. This provides a good balance between speed and security, and
 is simple to setup and maintain.
 
-You can configure integrity in the `+/etc/fapolicyd/fapolicyd.conf+`
-file:
+You can configure integrity in the `/etc/fapolicyd/fapolicyd.conf` file:
 
-[source,bash]
+[source,bash,run]
 ----
 sudo sed -i 's/integrity.*/integrity = sha256/' /etc/fapolicyd/fapolicyd.conf
 ----
 
 Restart the daemon:
 
-[source,bash]
+[source,bash,run]
 ----
 sudo systemctl restart fapolicyd
 ----
 
 We can now verify whether file integrity checking is performed:
 
-[source,bash]
+[source,bash,run]
 ----
 /bin/more "mooooooo"
 ----
